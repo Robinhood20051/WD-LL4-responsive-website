@@ -1,0 +1,217 @@
+/* Make all HTML elements larger by increasing the base font size */
+html {
+  background-color: rgb(58, 58, 58);
+  font-size: 20px; /* Increased from default (usually 16px) */
+}
+
+/* Style for the header */
+header {
+  /* Use flexbox to arrange logo and nav vertically on mobile */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 16px;
+  /* Add a colorful gradient background to the header */
+  background: linear-gradient(to right, #a7a4a4, #000000);
+}
+
+/* Style for the logo */
+.logo h1 {
+  margin: 0;
+  font-size: 2em;
+}
+
+/* Navigation styles */
+nav {
+  width: 100%;
+}
+
+/* Navigation links list */
+.nav-links {
+  list-style: none; /* Remove bullets */
+  padding: 0;
+  margin: 16px 0 0 0;
+  display: flex;
+  flex-direction: column; /* Stack links vertically on mobile */
+  align-items: center;
+}
+
+/* Each navigation link */
+.nav-links li {
+  margin: 8px 0;
+}
+
+/* Style for the links */
+.nav-links a {
+  text-decoration: none;
+  color: #333;
+  font-size: 1.1em;
+}
+
+/* Make navigation links appear in a row on larger screens */
+@media (min-width: 700px) {
+  header {
+    flex-direction: row; /* Logo and nav side by side */
+    justify-content: space-between;
+    align-items: center;
+  }
+  .nav-links {
+    flex-direction: row; /* Links in a row */
+    margin: 0;
+  }
+  .nav-links li {
+    margin: 0 16px;
+  }
+}
+
+/* Hero section styles */
+.hero {
+  /* Set the height to fill the whole viewport */
+  height: 100vh;
+  /* Use a background image for the hero section */
+  background: 
+    linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), /* Dark overlay */
+    url('/Img/pexels-olly-3769146.jpg') center center/cover no-repeat;
+  /* Center the content vertically and horizontally */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* Add some padding */
+  padding: 24px;
+
+  color: rgb(255, 255, 255);
+
+}
+
+/* Headline style inside hero */
+.hero h2 {
+  font-size: 2.5em;
+  margin: 0 0 16px 0;
+}
+
+/* Paragraph style inside hero */
+.hero p {
+  font-size: 1.2em;
+  margin: 0 0 24px 0;
+  text-align: center;
+}
+
+/* Call to action button style */
+.cta-btn {
+  /* Basic button appearance */
+  display: inline-block;
+  padding: 12px 28px;
+  background-color: #ff5e62; /* Vibrant color */
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.1em;
+  border-radius: 25px;
+  margin-top: 12px;
+  transition: background 0.2s;
+}
+
+/* Button hover effect */
+.cta-btn:hover {
+  background-color: #2f00ff;
+}
+
+/* Cards section styles */
+.cards {
+  /* Add some space above and below the cards section */
+  margin: 32px auto;
+  max-width: 350px; /* Limit width for better appearance on large screens */
+  display: flex;
+  flex-direction: column; /* Stack cards vertically */
+  gap: 24px; /* Space between cards */
+  /* Make the cards section vertically scrollable with a fixed height */
+  max-height: 70vh; /* Adjust as needed */
+  overflow-y: auto; /* Enable vertical scrolling */
+  padding-right: 8px; /* Space for scrollbar */
+}
+
+/* Individual card styles (shared styles) */
+.card {
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  padding: 16px;
+  text-align: center;
+  position: relative; /* Needed for absolute positioning of hover description */
+  transition: transform 0.2s;
+}
+
+/* Card 1 specific styles */
+.card1 {
+  background-color: #383535; /* Dark gray */
+  color: #fff; /* White text */
+}
+
+/* Card 2 specific styles - New York */
+.card2 {
+  background-color: #cce6ff; /* Light blue for New York */
+  color: #222; /* Darker text for contrast */
+}
+
+/* Card 3 specific styles - Toronto */
+.card3 {
+  background-color: #ffe0b2; /* Light orange for Toronto */
+  color: #185a9d; /* Blue text */
+}
+
+/* Card image styles */
+.card img {
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 12px;
+}
+
+/* Card name/title */
+.card h3 {
+  margin: 12px 0 8px 0;
+  font-size: 1.3em;
+}
+
+/* Card description (applies to all cards) */
+.card p {
+  margin: 0;
+  font-size: 1em;
+}
+
+/* Hidden hover description styles */
+.card-desc {
+  display: none; /* Hide by default */
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 16px;
+  background: rgba(0,0,0,0.85);
+  color: #fff;
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 1em;
+  z-index: 2;
+  /* For card2 and card3, override background and color for readability */
+}
+
+/* Show the hover description when hovering over the card */
+.card:hover .card-desc {
+  display: block;
+}
+
+/* Optional: Slightly lift the card on hover */
+.card:hover {
+  transform: translateY(-6px) scale(1.03);
+  z-index: 3;
+}
+
+/* Card2 hover description background for readability */
+.card2 .card-desc {
+  background: rgba(255, 239, 213, 0.95);
+  color: #333;
+}
+
+/* Card3 hover description background for readability */
+.card3 .card-desc {
+  background: rgba(224, 247, 250, 0.95);
+  color: #185a9d;
+}
