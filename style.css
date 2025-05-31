@@ -120,14 +120,16 @@ nav {
 .cards {
   /* Add some space above and below the cards section */
   margin: 32px auto;
-  max-width: 350px; /* Limit width for better appearance on large screens */
+  max-width: 1100px; /* Increase max-width for horizontal layout */
   display: flex;
-  flex-direction: column; /* Stack cards vertically */
+  flex-direction: row; /* Align cards horizontally */
   gap: 24px; /* Space between cards */
-  /* Make the cards section vertically scrollable with a fixed height */
-  max-height: 70vh; /* Adjust as needed */
-  overflow-y: auto; /* Enable vertical scrolling */
-  padding-right: 8px; /* Space for scrollbar */
+  /* Make the cards section horizontally scrollable on small screens */
+  overflow-x: auto;
+  overflow-y: visible;
+  padding: 16px 8px;
+  justify-content: center; /* Center cards horizontally */
+  align-items: stretch; /* Make cards the same height */
 }
 
 /* Individual card styles (shared styles) */
@@ -138,6 +140,13 @@ nav {
   text-align: center;
   position: relative; /* Needed for absolute positioning of hover description */
   transition: transform 0.2s;
+  /* Set a fixed width and make all cards the same height */
+  width: 300px;           /* All cards have the same width */
+  min-height: 420px;      /* All cards have the same minimum height */
+  box-sizing: border-box; /* Include padding and border in width/height */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
 }
 
 /* Card 1 specific styles */
@@ -168,7 +177,7 @@ nav {
 /* Card name/title */
 .card h3 {
   margin: 12px 0 8px 0;
-  font-size: 1.3em;
+  font-size: 2em;
 }
 
 /* Card description (applies to all cards) */
