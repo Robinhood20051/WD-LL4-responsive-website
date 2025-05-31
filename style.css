@@ -75,7 +75,7 @@ nav {
   /* Use a background image for the hero section */
   background: 
     linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), /* Dark overlay */
-    url('/img/world.jpg') center center/cover no-repeat;
+    url('img/world.jpg') center center/cover no-repeat;
   /* Center the content vertically and horizontally */
   display: flex;
   flex-direction: column;
