@@ -34,11 +34,16 @@ nav {
   display: flex;
   flex-direction: column; /* Stack links vertically on mobile */
   align-items: center;
+  justify-content: center; /* Center nav links horizontally */
+  width: 100%; /* Take full width for centering */
 }
 
 /* Each navigation link */
 .nav-links li {
   margin: 8px 0;
+  width: 100%; /* Make each link take full width */
+  display: flex;
+  justify-content: center; /* Center the link text */
 }
 
 /* Style for the links */
@@ -53,7 +58,6 @@ nav {
   header {
     flex-direction: row; /* Logo and nav side by side */
     justify-content: space-between;
-    align-items: center;
   }
   .nav-links {
     flex-direction: row; /* Links in a row */
@@ -118,18 +122,27 @@ nav {
 
 /* Cards section styles */
 .cards {
-  /* Add some space above and below the cards section */
+  /* Mobile-first: stack cards vertically */
   margin: 32px auto;
-  max-width: 1100px; /* Increase max-width for horizontal layout */
+  max-width: 1100px;
   display: flex;
-  flex-direction: row; /* Align cards horizontally */
-  gap: 24px; /* Space between cards */
-  /* Make the cards section horizontally scrollable on small screens */
-  overflow-x: auto;
+  flex-direction: column; /* Stack vertically by default */
+  gap: 24px;
+  overflow-x: visible;
   overflow-y: visible;
   padding: 16px 8px;
-  justify-content: center; /* Center cards horizontally */
-  align-items: stretch; /* Make cards the same height */
+  justify-content: center;
+  align-items: stretch;
+  align-items: center; /* Center cards when stacked vertically on mobile */
+}
+
+/* Desktop: align cards horizontally using Flexbox */
+@media (min-width: 700px) {
+  .cards {
+    flex-direction: row; /* Align cards in a row on larger screens */
+    overflow-x: auto;
+    overflow-y: visible;
+  }
 }
 
 /* Individual card styles (shared styles) */
@@ -210,6 +223,7 @@ nav {
 /* Optional: Slightly lift the card on hover */
 .card:hover {
   transform: translateY(-6px) scale(1.03);
+  transform: scale(1.05); transition: 0.3s;
   z-index: 3;
 }
 
